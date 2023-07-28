@@ -1,0 +1,34 @@
+Hướng dẫn viết tài liệu api swagger với thư viện darkaonline/l5-swagger
+
++ Tài liệu tham khảo
+- https://viblo.asia/p/cach-su-dung-swagger-de-kiem-tra-api-laravel-phan-1-LzD5dBAdZjY
+- https://viblo.asia/p/l5-swagger-in-laravel-rest-apis-m68Z0x1AZkG
+- https://giangmd.net/laravel-swagger-la-gi-huong-dan-tao-swagger-trong-laravel/
+
++ Phần cài đặt
+Bước 1: composer require "darkaonline/l5-swagger"
+Bước 2: php artisan vendor:publish --provider "L5Swagger\L5SwaggerServiceProvider"
+Bước 3: composer require 'zircote/swagger-php'
+
++ Có 2 file sẽ được publish ra ngoài:
+- view: resources/views/vendor/l5-swagger
+- config: config/l5-swagger.php
+
++ Có 2 thông số config mà bạn cần biết trong config/l5-swagger.php
+- Bạn thấy documentations.routes đây là đường dẫn url cho swagger trong dự án của chúng ta mặc định là api/documentation.
+Ở đây mình sẽ đổi lại là api/docs
+- Config thứ 2 là generate_always
+    - generate_always => true => swagger sẽ tự động được nạp
+    - generate_always => false => mỗi lần cập nhật 1 resource mới thì cần chạy lại lệnh generate
+
++ Tiếp theo chúng ta chạy lệnh để generate swagger: php artisan l5-swagger:generate
+- Nếu gặp lỗi OpenApi\Loggers\DefaultLogger::log("warning", "Required @OA\Info() not found", [])
+thì đó là do chúng ta chưa tạo nơi định dạng cho swagger. Thường thì mình nên tạo một nơi chung mà tất cả các request sẽ đi qua.
+Ở đây mình tạo trong file Controller. Tại file app/Http/Controllers/Controller.php mình thêm đoạn mã này
+/**
+* @OA\Info(
+* title="Your Application API document",
+* version="1.0.0",
+* )
+*/
+

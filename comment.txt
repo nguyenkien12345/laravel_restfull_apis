@@ -1,0 +1,19 @@
++ php artisan make:model Customer --all
++ php artisan make:model Invoice --all
+
++ Thứ tự làm việc file: database/migrations 2023_06_01_112458_create_customers_table.php =>  database/factories CustomerFactory.php => app/Models Customer.php
+=> database/seeders CustomerSeeder.php => database/seeders DatabaseSeeder.php
+
++ Thứ tự làm việc file: database/migrations 2023_06_01_112552_create_invoices_table.php  =>  database/factories InvoiceFactory.php  => app/Models Invoice.php
+
++ Sau đó chạy lệnh php artisan migrate:fresh --seed => Nó vừa migrate database vào tạo ra data mẫu
+
++ php artisan make:resource V1\CustomerResource
++ php artisan make:resource V1\InvoiceResource
++ php artisan make:resource V1\CustomerCollection
++ php artisan make:resource V1\InvoiceCollection
+
+
+
+
+

@@ -1,0 +1,28 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "TECHNICAL DOCUMENTATION FOR RESTFULL APIS APPLICATION",
+        "description": "TECHNICAL DOCUMENTATION FOR RESTFULL APIS APPLICATION",
+        "contact": {
+            "email": "nguyenkien11202000@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://productions/api/docs",
+            "description": "Server Production"
+        }
+    ],
+    "paths": {
+        "/api/docs": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "An example endpoint"
+                    }
+                }
+            }
+        }
+    }
+}
